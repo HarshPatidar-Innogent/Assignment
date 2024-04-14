@@ -1,14 +1,14 @@
 package assignmentDay2Part2.methods;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+
+import assignmentDay2Part2.module.Employee;
 
 public class Task2 {
+	static List<Employee> employeeList = new ArrayList<Employee>();
+
 	public static void main(String[] args) {
-		List<Employee> employeeList = new ArrayList<Employee>();
 
 		employeeList.add(new Employee(111, "Jiya Brein", 32, "Female", "HR", 2011, 25000.0));
 		employeeList.add(new Employee(122, "Paul Niksui", 25, "Male", "Sales And Marketing", 2015, 13500.0));
@@ -29,38 +29,47 @@ public class Task2 {
 		employeeList.add(new Employee(277, "Anuj Chettiar", 31, "Male", "Product Development", 2012, 35700.0));
 
 //		1	How many male and female employees are there in the organization?																								
-//		countMaleAndFeamle(employeeList);
+//		EmployeeDataHandler.countMaleAndFeamle(employeeList);
 
 //		2	Print the name of all departments in the organization?
-//		getDistinctDepartment(employeeList).forEach(System.out::println);
+//		EmployeeDataHandler.getDistinctDepartment(employeeList).forEach(System.out::println);
 		
 //		3	What is the average age of male and female employees?																								
-		getAvgMaleFemale(employeeList);
+//		EmployeeDataHandler.getAvgMaleFemale(employeeList);
+		
+//		4	Get the details of highest paid employee in the organization?																								
+//		System.out.println(EmployeeDataHandler.highestEmployee(employeeList)); 
+		
+//		5	Get the names of all employees who have joined after 2015?		
+//		EmployeeDataHandler.getEmpOf2015(employeeList).forEach(System.out::println);
+		
+//		6	Count the number of employees in each department?		
+//		EmployeeDataHandler.getEmpCountInDept(employeeList).entrySet().stream().forEach(System.out::println);
+	
+//		7	What is the average salary of each department?																								
+//		EmployeeDataHandler.getDeptAvgSalary(employeeList).entrySet().stream().forEach(System.out::println);
+		
+//		8	Get the details of youngest male employee in the product development department?		
+//		System.out.println(EmployeeDataHandler.getYoungestEmployee(employeeList));
+		
+//		9	How many male and female employees are there in the sales and marketing team?																								
+//		EmployeeDataHandler.getEmpByGenderInSalesMarketing(employeeList);
+		
+//		10	What is the average salary of male and female employees?	
+//		System.out.println(EmployeeDataHandler.getAvgSalOfMaleAndFemale(employeeList));
+		
+//		11	List down the names of all employees in each department?																								
+//		EmployeeDataHandler.getEmpByDept(employeeList).entrySet().stream().forEach(System.out::println);
+		
+//		12	What is the average salary and total salary of the whole organization?		
+//		EmployeeDataHandler.getAvgAndTotalSal(employeeList);			
+		
+//		13	Separate the employees who are younger or equal to 25 years from those employees who are older than 25 years?																								
+//		EmployeeDataHandler.getYoungEmployee(employeeList);
+		
+//		14	Who is the oldest employee in the organization? What is his age and which department he belongs to?																								
+		System.out.println(EmployeeDataHandler.getOldestEmployee(employeeList));;
 	}
 
-	public static void countMaleAndFeamle(List<Employee> employees) {
-		Long maleCount = employees.stream().filter(s -> s.getGender().equals("Male")).count();
-		Long femaleCount = employees.stream().filter(s -> s.getGender().equals("Female")).count();
 
-		System.out.println("Total Male Count: " + maleCount);
-		System.out.println("Total Female Count: " + femaleCount);
-
-	}
-
-	static List<String> allDept = new ArrayList<String>();
-
-	public static Set<String> getDistinctDepartment(List<Employee> employees) {
-		return employees.stream().map(Employee::getDepartment).collect(Collectors.toSet());
-	}
-
-	static Long maleAge = 0l;
-	static Long femaleAge = 0l;
-	public static void getAvgMaleFemale(List<Employee> employees) {
-		employees.stream().filter(e->e.getGender().equals("Male")).forEach(s -> maleAge += s.getAge());
-		employees.stream().filter(e->e.getGender().equals("Female")).forEach(s -> femaleAge += s.getAge());
-
-		System.out.println(maleAge/employees.size());
-		System.out.println(femaleAge/employees.size());
-
-	}
 }

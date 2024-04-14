@@ -11,9 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import com.inno.module.Address;
-import com.inno.module.Classes;
-import com.inno.module.Student;
+import AssignmentDay2Part1.module.Address;
+import AssignmentDay2Part1.module.Classes;
+import AssignmentDay2Part1.module.Student;
 
 public class Assignment2_1 {
 	public static List<Student> studentList = new LinkedList<Student>();
@@ -253,7 +253,7 @@ public class Assignment2_1 {
 //		like : read female students first 7-8 order by name	
 //		like : read female students first 1-5 order by marks
 //		like : read female students first 9-50 order by marks
-		getSortedStudentByOrder(studentList, 'F', 1, 4, "marks", false).forEach(System.out::println);;
+//		getSortedStudentByOrder(studentList, 'F', 1, 4, "marks", false).forEach(System.out::println);;
 		
 //		List<Student> studList, Character gender, int start, int end, String sortBy, boolean ReverseOrder
 

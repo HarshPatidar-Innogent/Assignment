@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.inno.module.Address;
-import com.inno.module.Classes;
-import com.inno.module.Student;
+import AssignmentDay2Part1.module.Address;
+import AssignmentDay2Part1.module.Classes;
+import AssignmentDay2Part1.module.Student;
 
 public class Filters {
 
