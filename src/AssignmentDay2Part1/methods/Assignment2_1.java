@@ -160,14 +160,12 @@ public class Assignment2_1 {
 		studentList.stream().forEach(c -> {
 			studentsByClassId.put(c.getClass_id(), studentsByClassId.getOrDefault(c.getClass_id(), 0) + 1);
 		});
-
-		for (java.util.Map.Entry<Integer, Integer> e : studentsByClassId.entrySet()) {
-			if (e.getValue().equals(0))
-				zeroId = e.getKey();
-		}
+		
+		zeroId = studentsByClassId.entrySet().stream().filter(e->e.getValue().equals(0)).map(Map.Entry::getKey).findFirst().get();
+		Character className = classList.stream().filter(c->c.getId()==zeroId).findFirst().map(Classes::getName).get();
 		classList = classList.stream().filter(c -> c.getId() != zeroId).collect(Collectors.toList());
 		if (zeroId != 0)
-			return "Class Deleted";
+			return className+ " Class Deleted";
 		return "CLass Not Deleted";
 
 	}
@@ -186,15 +184,23 @@ public class Assignment2_1 {
 		switch (sortBy) {
 		case "name":
 			comparator = Comparator.comparing(Student::getName);
+			if(reverseOrder==true)
+				comparator = Comparator.comparing(Student::getName).reversed();
 			break;
 		case "marks":
-			comparator = Comparator.comparing(Student::getMarks).reversed();
+			comparator = Comparator.comparing(Student::getMarks);
+			if(reverseOrder==true)
+				comparator = Comparator.comparing(Student::getMarks).reversed();
 			break;
 		case "class_id":
 			comparator = Comparator.comparing(Student::getClass_id);
+			if(reverseOrder==true)
+				comparator = Comparator.comparing(Student::getClass_id).reversed();
 			break;
 		default:
 			comparator = Comparator.comparing(Student::getId);
+			if(reverseOrder==true)
+				comparator = Comparator.comparing(Student::getId).reversed();
 		}
 		return comparator;
 	}
@@ -254,7 +260,7 @@ public class Assignment2_1 {
 //		like : read female students first 7-8 order by name	
 //		like : read female students first 1-5 order by marks
 //		like : read female students first 9-50 order by marks
-//		getSortedStudentByOrder(studentList, 'F', 1, 4, "marks", false).forEach(System.out::println);;
+		getSortedStudentByOrder(studentList, 'F', 1, 4, "name", true).forEach(System.out::println);;
 		
 //		List<Student> studList, Character gender, int start, int end, String sortBy, boolean ReverseOrder
 
