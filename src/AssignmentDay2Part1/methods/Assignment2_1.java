@@ -243,7 +243,8 @@ public class Assignment2_1 {
 //		addList.forEach(System.out::println);
 
 //		9.I should be able to delete student. After that it should delete the respective obj from Address & Student.
-
+//		DeleteStudent.deleteStudent(1);
+		
 //		10	If there is no student remaining in that class. Class should also be deleted.
 //		System.out.println(deleteClass());
 //		classList.forEach(System.out::println);

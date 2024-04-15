@@ -35,7 +35,7 @@ public class Task2 {
 //		EmployeeDataHandler.getDistinctDepartment(employeeList).forEach(System.out::println);
 		
 //		3	What is the average age of male and female employees?																								
-		EmployeeDataHandler.getAvgMaleFemale(employeeList);
+//		EmployeeDataHandler.getAvgMaleFemale(employeeList);
 		
 //		4	Get the details of highest paid employee in the organization?																								
 //		System.out.println(EmployeeDataHandler.highestEmployee(employeeList)); 
